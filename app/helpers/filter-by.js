@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
-const { isEmpty } = Ember;
+const { isEmpty, A } = Ember;
 
 export function filterBy([collection, filterProperty, filterValue]) {
   if (isEmpty(filterProperty)) {
     return collection;
   } else {
-    return collection.filterBy(filterProperty, filterValue);
+    return A(collection).filterBy(filterProperty, filterValue);
   }
 }
 

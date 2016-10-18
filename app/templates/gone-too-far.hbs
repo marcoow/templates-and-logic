@@ -1,0 +1,14 @@
+<h1>Going too far</h1>
+
+<h2>Random Active User</h2>
+
+{{#each (take 1 (filter-by (shuffle model) 'isActive' true)) as |user|}}
+  {{#let user.firstName user.lastName as |firstName lastName|}}
+    <p>
+      {{concat (capitalize firstName) ' ' (capitalize lastName)}}
+      {{#if (and (eq (capitalize (take 1 firstName)) 'J') (lte user.age 65))}}
+        (he's the special one!)
+      {{/if}}
+    </p>
+  {{/let}}
+{{/each}}
