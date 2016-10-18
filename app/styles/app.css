@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.content > div {
+  flex: 1;
+}
+
+.in-template-logic {
+  border-right: 1px solid black;
+  padding-right: 20px;
+  margin-right: 20px;
+}

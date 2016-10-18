@@ -1,6 +1,26 @@
-<h2>Users</h2>
-<ul>
-  {{#each model as |user|}}
-    <li>{{user.firstName}} {{user.lastName}}</li>
-  {{/each}}
-</ul>
+<div class="content">  
+  <div class="in-template-logic">
+    <h1>Logic in templates</h1>
+    <h2>Users</h2>
+    <ul>
+      {{#each model as |user|}}
+        <li>
+          <h3>{{user.firstName}} {{user.lastName}}</h3>
+          <p>{{if (gte user.age 65) 'senior' 'adult'}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="in-template-context-logic">
+    <h1>Logic in template context</h1>
+    <h2>Users</h2>
+    <ul>
+      {{#each model as |user|}}
+        <li>
+          <h3>{{user.firstName}} {{user.lastName}}</h3>
+          <p>{{if user.isSenior 'senior' 'adult'}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
