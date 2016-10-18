@@ -7,8 +7,7 @@ const DATA = [
       'first-name': 'Jose',
       'last-name': 'Mourinho',
       age: 53,
-      'is-active': true,
-      'is-admin': false
+      'is-active': true
     }
   },
   {
@@ -18,8 +17,7 @@ const DATA = [
       'first-name': 'Pep',
       'last-name': 'Guardiola',
       age: 45,
-      'is-active': true,
-      'is-admin': false
+      'is-active': true
     }
   },
   {
@@ -29,8 +27,7 @@ const DATA = [
       'first-name': 'Jupp',
       'last-name': 'Heynckes',
       age: 71,
-      'is-active': false,
-      'is-admin': true
+      'is-active': false
     }
   }
 ]

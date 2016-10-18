@@ -9,7 +9,6 @@ export default DS.Model.extend({
   lastName:  attr('string'),
   age:       attr('number'),
   isActive:  attr('boolean'),
-  isAdmin:   attr('boolean'),
 
   isSenior: computed.gte('age', 65)
 });
