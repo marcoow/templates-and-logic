@@ -5,7 +5,7 @@
     <ul>
       {{#each (filter-by model 'isActive' true) as |user|}}
         <li>
-          {{user-tile user=user}}
+          {{template-based-user-tile user=user}}
         </li>
       {{/each}}
     </ul>
@@ -13,7 +13,7 @@
     <ul>
       {{#each (filter-by model 'isActive' false) as |user|}}
         <li>
-          {{user-tile user=user}}
+          {{template-based-user-tile user=user}}
         </li>
       {{/each}}
     </ul>
@@ -24,7 +24,7 @@
     <ul>
       {{#each activeUsers as |user|}}
         <li>
-          {{user-tile user=user}}
+          {{context-based-user-tile user=user}}
         </li>
       {{/each}}
     </ul>
@@ -32,7 +32,7 @@
     <ul>
       {{#each inactiveUsers as |user|}}
         <li>
-          {{user-tile user=user}}
+          {{context-based-user-tile user=user}}
         </li>
       {{/each}}
     </ul>

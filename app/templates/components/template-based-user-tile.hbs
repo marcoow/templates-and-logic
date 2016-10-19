@@ -1,0 +1,11 @@
+<h3>
+  {{#if isEditing}}
+    <input type="text" value={{user.firstName}} onchange={{action (mut firstName) value='target.value'}}/>
+    <input type="text" value={{user.lastName}} onchange={{action (mut lastName) value='target.value'}}/>
+    <button onclick={{action (mut isEditing) false}}>Cancel</button>
+    <button onclick={{action (pipe (action 'validate') (action (mut user.firstName) firstName) (action (mut user.lastName) lastName) (action 'save') (action (mut isEditing) false))}}>Save</button>
+  {{else}}
+    {{user.firstName}} {{user.lastName}} <button onclick={{action (mut isEditing) true}}>Edit</button>
+  {{/if}}
+</h3>
+<p>{{if (gte user.age 65) 'senior' 'adult'}}</p>

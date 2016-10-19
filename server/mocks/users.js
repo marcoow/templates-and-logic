@@ -42,5 +42,9 @@ module.exports = function(app) {
     });
   });
 
+  usersRouter.patch('/:id', function(req, res) {
+    res.status(204).end();
+  });
+
   app.use('/api/users', usersRouter);
 };
