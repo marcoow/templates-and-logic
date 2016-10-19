@@ -36,7 +36,9 @@ export default Component.extend({
     save() {
       this._validate().then(() => {
         this.get('user').setProperties(this.getProperties('firstName', 'lastName'));
-        this.get('user').save().then(() => this.set('isEditing', false));
+        return this.get('user').save();
+      }).then(() => {
+        this.set('isEditing', false)
       });
     }
   }
