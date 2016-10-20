@@ -4,7 +4,7 @@ const { Component, RSVP, isPresent, computed } = Ember;
 
 export default Component.extend({
   firstName: computed.oneWay('user.firstName'),
-  lastName: computed.oneWay('user.firstName'),
+  lastName: computed.oneWay('user.lastName'),
 
   _validate() {
     let { firstName, lastName } = this.getProperties('firstName', 'lastName');
