@@ -3,11 +3,9 @@ import Ember from 'ember';
 const { keys } = Object;
 const { computed, copy } = Ember;
 
-export default function join(...properties) {
-  let args = [...copy(properties), function() {
-    let props = this.getProperties(...properties);
-    let values = keys(props).map((key) => props[key]);
-    return values.join(' ');
+export default function join(first, second, glue = ' ') {
+  let args = [first, second, function() {
+    return [this.get(first), this.get(second)].join(glue);
   }];
   return computed(...args);
 }
