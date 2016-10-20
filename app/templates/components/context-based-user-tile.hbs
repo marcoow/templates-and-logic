@@ -5,7 +5,7 @@
     <button onclick={{action 'cancelEditing'}}>Cancel</button>
     <button onclick={{action 'save'}}>Save</button>
   {{else}}
-    {{user.firstName}} {{user.lastName}} <button onclick={{action 'startEditing'}}>Edit</button>
+    {{user.fullName}} <button onclick={{action 'startEditing'}}>Edit</button>
   {{/if}}
 </h3>
 <p>{{if (gte user.age 65) 'senior' 'adult'}}</p>
