@@ -38,7 +38,7 @@ export default Component.extend({
         this.get('user').setProperties(this.getProperties('firstName', 'lastName'));
         return this.get('user').save();
       }).then(() => {
-        this.set('isEditing', false)
+        this.set('isEditing', false);
       });
     }
   }

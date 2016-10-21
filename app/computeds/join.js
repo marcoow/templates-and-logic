@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
-const { keys } = Object;
-const { computed, copy } = Ember;
+const { computed } = Ember;
 
 export default function join(first, second, glue = ' ') {
   let args = [first, second, function() {
