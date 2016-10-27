@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
+import { task } from 'ember-concurrency';
 const { Component, RSVP, isPresent, computed } = Ember;
 
 export default Component.extend({
@@ -16,6 +17,13 @@ export default Component.extend({
     }
   },
 
+  save: task(function* () {
+    yield this._validate();
+    this.get('user').setProperties(this.getProperties('firstName', 'lastName'));
+    yield this.get('user').save();
+    this.set('isEditing', false);
+  }),
+
   actions: {
     startEditing() {
       this.set('isEditing', true);
@@ -31,15 +39,6 @@ export default Component.extend({
 
     setLastName(value) {
       this.set('lastName', value);
-    },
-
-    save() {
-      this._validate().then(() => {
-        this.get('user').setProperties(this.getProperties('firstName', 'lastName'));
-        return this.get('user').save();
-      }).then(() => {
-        this.set('isEditing', false);
-      });
     }
   }
 });
