@@ -3,7 +3,7 @@
     <input type="text" value={{user.firstName}} onchange={{action 'setFirstName' value='target.value'}}/>
     <input type="text" value={{user.lastName}} onchange={{action 'setLastName' value='target.value'}}/>
     <button onclick={{action 'cancelEditing'}}>Cancel</button>
-    <button onclick={{action 'save'}}>Save</button>
+    <button onclick={{perform save }}>Save</button>
   {{else}}
     {{user.fullName}} <button onclick={{action 'startEditing'}}>Edit</button>
   {{/if}}
