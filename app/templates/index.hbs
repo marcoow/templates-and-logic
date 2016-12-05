@@ -1,17 +1,17 @@
+<div class="menu">
+  {{#link-to 'index' (query-params filter='active')}}
+    Active Users
+  {{/link-to}}
+  {{#link-to 'index' (query-params filter='inactive')}}
+    Inactive Users
+  {{/link-to}}
+</div>
 <div class="content">  
   <div class="in-template-logic">
     <h1>Logic in templates</h1>
-    <h2>Active Users</h2>
+    <h2>Users</h2>
     <ul>
-      {{#each (filter-by model 'isActive' true) as |user|}}
-        <li>
-          {{template-based-user-tile user=user}}
-        </li>
-      {{/each}}
-    </ul>
-    <h2>Inactive Users</h2>
-    <ul>
-      {{#each (filter-by model 'isActive' false) as |user|}}
+      {{#each (filter-by model 'isActive' (eq filter 'active')) as |user|}}
         <li>
           {{template-based-user-tile user=user}}
         </li>
@@ -20,17 +20,9 @@
   </div>
   <div class="in-template-context-logic">
     <h1>Logic in template context</h1>
-    <h2>Active Users</h2>
+    <h2>Users</h2>
     <ul>
-      {{#each activeUsers as |user|}}
-        <li>
-          {{context-based-user-tile user=user}}
-        </li>
-      {{/each}}
-    </ul>
-    <h2>Inactive Users</h2>
-    <ul>
-      {{#each inactiveUsers as |user|}}
+      {{#each users as |user|}}
         <li>
           {{context-based-user-tile user=user}}
         </li>
