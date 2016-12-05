@@ -7,6 +7,12 @@ export default Controller.extend({
   queryParams: ['filter'],
   filter: 'active',
 
-  filterValue: computed.equal('filter', 'active'),
-  users: filterBy('model', 'isActive', 'filterValue')
+  filterProperty: computed('filter', function() {
+    return {
+      active:   'isActive',
+      inactive: 'isInactive',
+      senior:   'isSenior'
+    }[this.get('filter')];
+  }),
+  users: filterBy('model', 'filterProperty')
 });

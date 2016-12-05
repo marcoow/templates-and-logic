@@ -1,17 +1,28 @@
 <div class="menu">
-  {{#link-to 'index' (query-params filter='active')}}
-    Active Users
-  {{/link-to}}
-  {{#link-to 'index' (query-params filter='inactive')}}
-    Inactive Users
-  {{/link-to}}
+  <ul>
+    <li>
+      {{#link-to 'index' (query-params filter='active')}}
+        Active Users
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'index' (query-params filter='inactive')}}
+        Inactive Users
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'index' (query-params filter='senior')}}
+        Senior Users
+      {{/link-to}}
+    </li>
+  </ul>
 </div>
 <div class="content">  
   <div class="in-template-logic">
     <h1>Logic in templates</h1>
     <h2>Users</h2>
     <ul>
-      {{#each (filter-by model 'isActive' (eq filter 'active')) as |user|}}
+      {{#each (filter-by model filterProperty true) as |user|}}
         <li>
           {{template-based-user-tile user=user}}
         </li>

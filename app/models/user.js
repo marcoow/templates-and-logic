@@ -11,6 +11,7 @@ export default DS.Model.extend({
   age:       attr('number'),
   isActive:  attr('boolean'),
 
-  isSenior: computed.gte('age', 65),
-  fullName: join('firstName', 'lastName')
+  isInactive: computed.not('isActive'),
+  isSenior:   computed.gte('age', 65),
+  fullName:   join('firstName', 'lastName')
 });
